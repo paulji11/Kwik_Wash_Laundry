@@ -25,8 +25,9 @@
                 <input type="text" class="input_form" placeholder="Last name" name="user-lastname"required><br><br>
                 <input type="text" class="input_form" placeholder="Valid email-id" name="user-email"required><br><br>
                 <input type="text" class="input_form" placeholder="Contact number" name="user-contact"required><br><br>
-                <input type="text" class="input_form" placeholder="house name" name="user-housename" required><br><br>
-                <input type="text" class="input_form" placeholder="pincode" name="user-pincode"required><br><br>
+                <input type="text" class="input_form" placeholder="House name" name="user-housename" required><br><br>
+                <input type="text" class="input_form" placeholder="city" name="user-city"required><br><br>
+                <input type="text" class="input_form" placeholder="Pincode" name="user-pincode"required><br><br>
                 <input type="password" class="input_form" placeholder=" Create a password" name="user-password" required><br><br>
                 <input type="password" class="input_form" placeholder=" Confirm  password" name="user-confirmpassword" required><br><br>
                 <button class="form-submit-button"type="submit"   value="submit" name="signup"><H3>SIGNUP</H3></button><br><br>

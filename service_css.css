@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(128 128 128 / 17%);
+}
+.s_img img{
+    height: 84vh;
+    width: 191vh;
+}
+
+.service_display{
+    
+}
+
+.service_id{
+  padding-left: 221px;  
+  margin-top: 30px;
+  position: relative;
+  display:block;
+}
+
+.service_id a{
+   
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    
+}
+
+.service_id a:hover{
+    color:black;
+}
+
+.group{
+    display: flex;
+    padding-left: 205px;
+    flex-wrap: wrap;
+}
+.s_card{
+    padding-left:20px;
+    height: 450px;
+    width: 350px;
+    margin-top: 40px;
+    display:block;
+    
+}
+
+.s_card img{
+    width: 320px;
+    height: 243px;
+}
+
+.s_card p{
+    font-size: 20px;
+    color: #00a8ffd1;
+    font-weight: bold;
+     text-align: center;
+}
+ .s_card p:hover{
+    color:black;
+ }
+
+ .iconclass{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
+ .iconclass img{
+    height: 30px;
+ }
+
+ .iconclass p{
+    margin-left: 13px;
+ }
+
+ .pricing-details{
+    margin: 0px;
+    padding: 0px;
+   }
+
+.price-heading{
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.price-heading p{
+    font-size:30px;
+    font-weight: bold;
+}
+
+.underline{
+    width: 280px;
+    height: 1px;
+    background-color: #dedede;
+    margin: auto;
+    clear: both;
+    margin-top: 4px;
+}
+ 
