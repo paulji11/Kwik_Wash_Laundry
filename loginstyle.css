@@ -1,0 +1,112 @@
+body{
+    overflow-y: hidden;
+}
+.container{
+    background:linear-gradient(rgb(174, 177, 177), rgba(100, 106, 114, 0.2));
+    height: 100vh;
+}
+.inside{
+    width:70rem;
+    height: 35rem;
+    margin-top: 50px;
+    margin-left:100px;
+    background-color: white;
+    display: flex;
+    border: 0px;
+    border-radius: 10px;
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    margin-left: 100px;
+}
+.sideleft{
+    float: left;
+    width: 45rem;
+    background:url("./images/laundry-login.jpg") no-repeat;
+    background-size: cover;
+    border: 0px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    
+}
+.sideright{
+    float: right;
+    width: 30rem;
+    background: white;
+    border: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+.container img{
+    height:140px;
+    width:140px;
+}
+.heading{
+    left: -20px;
+    position: relative;
+    margin-top:0rem;
+    color:#0ec4e1;
+}
+.signform{
+    text-align: center;
+    margin-top: 10rem;
+}
+.signform h2{
+    font-family: arial;
+    text-align:center;
+    
+}
+.logform{
+    top:50%;
+}
+.signform input{
+    border:0px;
+    border-bottom: 1px solid #8b8b8b33;
+    width: 280px;
+    height: 35px;
+}
+.signform input:focus-visible{
+    outline: none !important ;
+    border-bottom: 1px solid #0ec4e1;
+     
+    
+}
+.form-submit-button{
+    height: 40px;
+    width: 280px;
+    background: #0e3fe1;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    padding-top: 0px;
+    cursor: pointer;
+}
+.logform h4{
+    left:25%;
+    color:#8b8b8b33;
+}
+.center{
+    margin-top:300px;
+    margin-left: 50px;
+    align-items: center;
+}
+.head{
+    text-align:center;
+    color:whitesmoke;
+    font-family: arial;
+    font-size: 50px;
+    
+
+}
+.subhead{
+    text-align:center;
+    color:#0ec4e1;
+    font-family: arial;
+    font-size: 50px;
+    
+
+}
