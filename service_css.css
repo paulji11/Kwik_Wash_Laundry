@@ -1,11 +1,11 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgba(128 128 128 / 17%);
+    background-color: rgb(255, 255, 255);
 }
 .s_img img{
     height: 84vh;
-    width: 191vh;
+    width: 193vh;
 }
 
 .service_display{
@@ -33,7 +33,7 @@ body{
 
 .group{
     display: flex;
-    padding-left: 205px;
+    padding-left: 30px;
     flex-wrap: wrap;
 }
 .s_card{
@@ -98,4 +98,45 @@ body{
     clear: both;
     margin-top: 4px;
 }
- 
+
+.prices-div{
+padding-left: 210px;
+position: relative;
+display: flex;
+}
+
+.prices{
+    width:30vh;
+    height:30vh;
+   margin-left: 50px;
+}
+
+.prices-digit p{
+    font-size: 105px;
+    margin:0px;
+    padding: 0px;
+    text-align: center;
+    justify-items: center;
+    color:gold
+}
+
+.prices-text p{
+    color: rgb(15, 125, 228);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.prices-text p:hover{
+    color: aqua;
+}
+
+.rights-text p{
+    text-align: center;
+    margin:0px; 
+    padding:0px;
+    color: white;
+    justify-items: center;
+}
+
