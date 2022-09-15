@@ -8,8 +8,8 @@ body{
 .inside{
     width:70rem;
     height: 35rem;
-    margin-top: 50px;
-    margin-left:100px;
+    margin-top: 90px;
+    margin-left:215px;
     background-color: white;
     display: flex;
     border: 0px;
@@ -20,7 +20,7 @@ body{
     display: flex;
     align-items: center;
     position: absolute;
-    margin-left: 100px;
+    margin-left: 205px;
 }
 .sideleft{
     float: left;

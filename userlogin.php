@@ -29,7 +29,7 @@
                   <input type="email" class="input_form" placeholder="email-id" name="user-email" required><br><br>
                   <input type="password" class="input_form" placeholder="password" name="user-password" required><br><br>
                   <button class="form-submit-button"type="submit"   value="submit" name="signup"><H3>SIGNUP</H3></button><br><br>
-                  <span>Don't have an account? </span><a href="./usersignup.php" style="color: #1739aa; text-decoration: none;">Register</a>
+                  <span>Don't have an account? </span><a href="usersignup.php" style="color: #1739aa; text-decoration: none;">Register</a>
                 </form>
             </div>
         </div>
