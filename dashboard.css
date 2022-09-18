@@ -14,7 +14,6 @@ header{
     justify-content: space-between;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 .head-logo img{
     width: 120px;
     height:120px;
@@ -71,6 +70,9 @@ aside{
     background:white;
     color:#0ec4e1;
 }
+.toggle{
+    float:right;
+}
 main{
     float: right;
     background: #ffffff; 
@@ -111,4 +113,38 @@ main{
         width: 250px;
         margin-right: 20px;
         border-radius: 10px;
+    }
+    .new img{
+        float:right;
+        height:25px;
+        width:25px;
+        margin-top: 20px;
+    }
+    .dashboard .item a .dropdown{
+        position:absolute;
+        right: 0;
+        margin:20px;
+        transition: .3s ease;
+
+    }
+    .dashboard .item .sub-menus a{
+        background: #86d7e4;
+
+    }
+    .dashboard .item .sub-menus a:hover{
+        background: #fff;
+        color: #86d7e4;
+
+    }
+    .count{
+        color:white;
+        font-size: 100px;
+        margin:50px;
+        text-shadow: 0 4px 8px 0 rgb(255, 255, 255);
+    }
+    .count-text{
+        color:white;
+        font-size: 30px;
+        margin-left: 50px;
+        text-shadow: 10px;
     }
