@@ -1,0 +1,145 @@
+body{
+    background:white;
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    z-index: 1;
+    background: white;
+}
+
+.logo-img{
+    margin: 0px;
+    padding: 0px;
+}
+.logo-img img{
+    height: 100px;
+    float:left;
+    margin-top: -12px;
+
+}
+
+.logo-profile{
+    float: right;
+    display: flex;
+}
+
+.profile-icon{
+    display: flex;
+    float: right;
+    align-items: center;
+}
+
+.profile-icon img{
+    height: 50px;
+}
+.profile-icon a {
+    margin-right: 8px;
+    text-decoration: none;
+    color:black;
+}
+
+aside{
+    width: 30vh;
+    height: 100vh;
+    background: rgb(6, 208, 244);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    float:left;
+    position: fixed;
+    margin-top:60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dash{
+    position: relative;
+}
+
+.dash a{
+    color: #fff;
+    display:block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transform: .5s;
+    transition-property: background;
+    cursor: pointer;
+}
+
+.dash a:hover{
+    color:aqua;
+    background-color: #fff;
+}
+
+.dash button{
+    color: #fff;
+    display:block;
+    width: 100%;
+    text-decoration: none;
+    padding-left: 40px;
+    border-style: none;
+    transform: .5s;
+    transition-property: background;
+    cursor: pointer;
+    background-color: rgb(6, 208, 244);
+    text-align: left;
+    font-size: 16px;
+}
+
+.dashhead{
+    width:100%;
+    height:50px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashhead h3{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+/*.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(252, 15, 15);
+  }
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+    z-index: 1;
+  }*/

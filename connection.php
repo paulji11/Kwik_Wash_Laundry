@@ -1,11 +1,13 @@
 <?php
-session_start();
 $host="localhost";
 $user="root";
 $pass="";
-$db="kwik_wash";
+$db="laundry_managaement";
 $conn=mysqli_connect($host,$user,$pass,$db);
-if($conn){
+if(!$conn){
     echo "not connected";
+}
+else{
+    //echo"connected";
 }
 ?>

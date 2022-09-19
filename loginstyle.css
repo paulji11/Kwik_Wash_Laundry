@@ -21,6 +21,7 @@ body{
     align-items: center;
     position: absolute;
     margin-left: 205px;
+    height: 130px;
 }
 .sideleft{
     float: left;

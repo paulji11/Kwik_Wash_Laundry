@@ -120,22 +120,6 @@ main{
         width:25px;
         margin-top: 20px;
     }
-    .dashboard .item a .dropdown{
-        position:absolute;
-        right: 0;
-        margin:20px;
-        transition: .3s ease;
-
-    }
-    .dashboard .item .sub-menus a{
-        background: #86d7e4;
-
-    }
-    .dashboard .item .sub-menus a:hover{
-        background: #fff;
-        color: #86d7e4;
-
-    }
     .count{
         color:white;
         font-size: 100px;
@@ -148,3 +132,5 @@ main{
         margin-left: 50px;
         text-shadow: 10px;
     }
+
+   
