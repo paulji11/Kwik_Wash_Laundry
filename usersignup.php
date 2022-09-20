@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include 'connection.php';
 if(isset($_POST['signupbtn'])){
     $fstname=$_POST['us_fstname'];
     $lastname=$_POST['us_lastname'];
@@ -81,12 +81,16 @@ if(isset($_POST['signupbtn'])){
         $confirmpasswerror="Password and confirm password should be same";
     }
     if(!$fstnameerror && !$lastnameerror && !$emailerror && !$phoneerror && !$housenameerror && !$cityerror && !$pincodeerror && !$passwerror && !$confirmpasswerror){
-
-    $sql="insert into tb_user(us_fstname,us_lastname,us_email,us_phone,us_housename,us_city,us_pincode,us_password) value ('$fstname','$lastname','$email','$phone','$housename','$city','$pincode','$passw')";
+    $enpassw=base64_encode($passw);
+    $sql="insert into tb_user(us_fstname,us_lastname,us_email,us_phone,us_housename,us_city,us_pincode,us_password) value ('$fstname','$lastname','$email','$phone','$housename','$city','$pincode','$enpassw')";
 	 $result=mysqli_query($conn,$sql);
     if(!$result)
     {
         echo"not inserted";
+    }
+    else{
+        header("Location:http://localhost/Kwik_Wash_Laundry/userlogin.php");
+
     }
 }
 }
@@ -130,9 +134,9 @@ if(isset($_POST['signupbtn'])){
                 <span style='color:red;font-size:small;'><?php if(isset($city))echo $cityerror ?><br></span>
                 <input type='text' class='input_form' placeholder='Pincode' name='us_pincode'><br>
                 <span style='color:red;font-size:small;'><?php if(isset($pincode))echo $pincodeerror ?><br></span>
-                <input type='text' class='input_form' placeholder=' Create a password' name='us_password' ><br>
+                <input type='password' class='input_form' placeholder=' Create a password' name='us_password' ><br>
                 <span style='color:red;font-size:small;'><?php if(isset($passw))echo $passwerror ?><br></span>
-                <input type='text' class='input_form' placeholder=' Confirm  password' name='us_confirmpassword' ><br>
+                <input type='password' class='input_form' placeholder=' Confirm  password' name='us_confirmpassword' ><br>
                 <span style='color:red;font-size:small;'><?php if(isset($confirmpassw))echo $confirmpasswerror ?><br></span>
                 <button class='form-submit-button'type='submit' value='Submit' name='signupbtn'><H3>SIGNUP</H3></button><br><br>
                 <span>Already have an account? </span><a href='./usersignup.php' style='color: deepskyblue; text-decoration: none;'>Login</a><br><br><br>

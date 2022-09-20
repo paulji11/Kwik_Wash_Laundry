@@ -1,9 +1,10 @@
 <?php
-include('connection.php');
+include 'connection.php';
+
 if(isset($_POST['submit']))
 {
 $empid = $_POST['username'];
-$pass = $_POST['pass'];
+$passw = $_POST['passw'];
 
 $sqllog= "SELECT * FROM tb_user WHERE us_id = '$email' AND us_Password = '$passw' ";
 
@@ -12,13 +13,14 @@ $check = mysqli_fetch_array($result);
 if(isset($check))
 {
   
-
 header("location:dashboard.html");
 
 }
 else
 {
-echo'<script>alert("No User Found ! ")</script>';
+echo"<script>alert('No User Found ! ');
+      windows.location'userlogin.php';
+     </script>";
 }
 }
 
@@ -51,9 +53,9 @@ echo'<script>alert("No User Found ! ")</script>';
         <div class="sideright">
             <div class="signform">
                <h2>Login</h2>
-               <form id="signup"class="logform">
-                  <input type="email" class="input_form" placeholder="email-id" name="log-email" required><br><br>
-                  <input type="password" class="input_form" placeholder="password" name="log-password" required><br><br>
+               <form id="signup"class="logform" method="post">
+                  <input type="email" class="input_form" placeholder="email-id" name="username" required><br><br>
+                  <input type="password" class="input_form" placeholder="password" name="passw" required><br><br>
                   <button class="form-submit-button"type="submit"   value="submit" name="signup"><H3>SIGNUP</H3></button><br><br>
                   <span>Don't have an account? </span><a href="./usersignup.php" style="color: #1739aa; text-decoration: none;">Register</a>
                 </form>
