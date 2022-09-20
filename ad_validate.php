@@ -23,12 +23,15 @@ else if(isset($_POST['submit'])){
         $decoded = base64_decode($row['ad_password']);
         $fname=$row['ad_firstname'];
         $lname=$row['ad_lastname'];
-        if($passw==$decoded)
+        if($passw == $decoded)
         {     
             header("Location:http://localhost/Kwik_Wash_Laundry/ad_dashboard.php");
             } 
         else{
-            echo"not logged";
+            echo"<script>
+            alert('No Admin Found ! Incorrect username or password');
+             window.location = 'http://localhost/Kwik_Wash_Laundry/adminlogin.php';
+             </script>";
         }
     }
 }
