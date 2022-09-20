@@ -91,3 +91,13 @@
     left:25%;
     color:#8b8b8b33;
 }
+.invalid{
+    display: none;
+    padding-top: 0px;
+    color:red;
+    font-size: small;
+    margin-left: -50px;
+}
+.invalid input::after{
+    animation: shake .3s;
+}

@@ -7,13 +7,7 @@
     <title>user</title>
     <link rel="stylesheet" href="./dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-           $('subbtn').click(function(){
-           $(this).next('sub-menus').slideToggle();
-          });
-        });
-       </script>
+  
 </head>
 <body>
     <header>
@@ -38,7 +32,7 @@
             <div class="item">
                 <a class="subbtn" href="#"><span>Laundry Request<i class="fas fa-angle-right dropdown"></i></span></a>
                 <div class="sub-menus">
-                    <a class="sub-item" href="#">sub item 01</a>
+                    <a class="sub-item"  href="#">sub item 01</a>
                 </div>
             </div>
             <div class="item"><a href="#"><span>Laundry History</span></a></div>
@@ -71,35 +65,27 @@
             
 
         </div>
-        <table border:1>
-            <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-            <th>Savings</th>
-            </tr>
-            <tr>
-              <td>Peter</td>
-              <td>Griffin</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Lois</td>
-              <td>Griffin</td>
-              <td>$150</td>
-            </tr>
-            <tr>
-              <td>Joe</td>
-              <td>Swanson</td>
-              <td>$300</td>
-            </tr>
-            <tr>
-              <td>Cleveland</td>
-              <td>Brown</td>
-              <td>$250</td>
-            </tr>
-          </table>
 
     </main>
-    
+    <script type="text/javascript"> 
+           $('.subbtn').click(function(){
+           $('.sub-item').toggleClass("show");
+          }); 
+        
+       </script>
+
+      <!-- <script type="text/javascript">
+            var b = document.getElementById("#subMenuItem");
+            var a = 'block';
+            function showMenus(){
+                if(b.style.display == a){
+                    b.style.display = "none";
+                }else{
+                    b.style.display = "block";
+                }
+                
+            }-->
+          
+       </script>
 </body>
 </html>
