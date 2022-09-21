@@ -35,7 +35,7 @@ $name=$fname." ".$lname;
                 <h3>Dashboard</h3>
             </div>
             <div class="dash-content">
-                <a>User Managemant</a><br>
+                <a href="user-manage.php">User Management</a><br>
             </div>
             <div class="dash-content">
                 <a>Request Status</a><br>
