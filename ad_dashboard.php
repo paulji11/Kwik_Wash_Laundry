@@ -23,7 +23,7 @@ $name=$fname." ".$lname;
         <div class="logo-profile">
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
-                <a href="5678"><?php echo $name ;?></a>
+                <a href="5678"><span style="color:#0ec4e1;"><?php echo $name ;?></span></a>
             </div>
             
         </div>

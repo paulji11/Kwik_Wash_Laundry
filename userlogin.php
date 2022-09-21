@@ -7,16 +7,18 @@ if(isset($_POST['submit']))
 $email = $_POST['email'];
 $passw = $_POST['passw'];
 
-$sqllog= "SELECT us_password FROM tb_user WHERE us_email = '$email'";
+$sqllog= "SELECT us_fstname,us_lastname,us_password FROM tb_user WHERE us_email = '$email'";
 
 $result = mysqli_query($conn,$sqllog);
 
 if(mysqli_num_rows($result) > 0){
     while($row=mysqli_fetch_assoc($result)){
         $depassw=base64_decode($row['us_password']);
+        $fstname=$row['us_fstname'];
+        $lstname=$row['us_lastname'];
         if($passw == $depassw)
         {
-          header("Location:http://localhost/Kwik_Wash_Laundry/dashboard.html");
+          header("Location:http://localhost/Kwik_Wash_Laundry/dashboard.php");
         }
         else
         {
@@ -27,6 +29,8 @@ if(mysqli_num_rows($result) > 0){
         }
     }
  }
+ $_SESSION['fstname']=$fstname;
+ $_SESSION['lstname']=$lstname;
 
 }
 
@@ -44,7 +48,7 @@ if(mysqli_num_rows($result) > 0){
 <body class="container">
     <div class="logo">
     <img src="./images/logo.png">
-        <span class="heading">KWIK WASH</span>
+        
     </div>
     <div class="inside">
         <div class="sideleft">

@@ -1,3 +1,11 @@
+<?php
+session_start();
+include 'connection.php';
+
+$fstname=$_SESSION['fstname'];
+$lstname=$_SESSION['lstname'];
+$name=$fstname." ".$lstname;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +26,8 @@
         <div class="logo-profile">
           <div class="userimg">
              <a href="#1234"><img src="./images/user.png"></a>
-             <a href="#">Profile</a>
+             <a href="#"><?php
+                            echo"$name";?></a>
             </div>
         </div>
        
@@ -30,10 +39,7 @@
             </div>
             <div class="item"><a href="#"><span>Request Status</span></a></div>
             <div class="item">
-                <a class="subbtn" href="#"><span>Laundry Request<i class="fas fa-angle-right dropdown"></i></span></a>
-                <div class="sub-menus">
-                    <a class="sub-item"  href="#">sub item 01</a>
-                </div>
+                <a class="subbtn" href="#"><span>Laundry Request</span></a>
             </div>
             <div class="item"><a href="#"><span>Laundry History</span></a></div>
             <div class="item"><a href="#"><span>History</span></a></div>
@@ -67,25 +73,6 @@
         </div>
 
     </main>
-    <script type="text/javascript"> 
-           $('.subbtn').click(function(){
-           $('.sub-item').toggleClass("show");
-          }); 
-        
-       </script>
 
-      <!-- <script type="text/javascript">
-            var b = document.getElementById("#subMenuItem");
-            var a = 'block';
-            function showMenus(){
-                if(b.style.display == a){
-                    b.style.display = "none";
-                }else{
-                    b.style.display = "block";
-                }
-                
-            }-->
-          
-       </script>
 </body>
 </html>

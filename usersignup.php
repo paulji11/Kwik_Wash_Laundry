@@ -1,5 +1,7 @@
 <?php
+session_start();
 include 'connection.php';
+
 if(isset($_POST['signupbtn'])){
     $fstname=$_POST['us_fstname'];
     $lastname=$_POST['us_lastname'];
@@ -84,6 +86,7 @@ if(isset($_POST['signupbtn'])){
     $enpassw=base64_encode($passw);
     $sql="insert into tb_user(us_fstname,us_lastname,us_email,us_phone,us_housename,us_city,us_pincode,us_password) value ('$fstname','$lastname','$email','$phone','$housename','$city','$pincode','$enpassw')";
 	 $result=mysqli_query($conn,$sql);
+
     if(!$result)
     {
         echo"not inserted";
@@ -93,6 +96,7 @@ if(isset($_POST['signupbtn'])){
 
     }
 }
+
 }
 
 ?>
@@ -108,7 +112,7 @@ if(isset($_POST['signupbtn'])){
 <body>
     <div class='signleft'>
         <img src='./images/logo.png'>
-        <h2>KWIK WASH</h2>
+        
         <div class='centered'>
             <span class='heading'>FRESH CLOTHES<br>FRESH LIFE.</span><br>
             <span class='subheading'>WELCOME</span>
