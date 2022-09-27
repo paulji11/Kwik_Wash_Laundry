@@ -7,6 +7,7 @@ if(isset($_POST['submit']))
 $email = $_POST['email'];
 $passw = $_POST['passw'];
 
+
 $sqllog= "SELECT us_fstname,us_lastname,us_password FROM tb_user WHERE us_email = '$email'";
 
 $result = mysqli_query($conn,$sqllog);
@@ -18,19 +19,20 @@ if(mysqli_num_rows($result) > 0){
         $lstname=$row['us_lastname'];
         if($passw == $depassw)
         {
-          header("Location:http://localhost/Kwik_Wash_Laundry/dashboard.php");
+            $_SESSION['fstname']=$fstname;
+            $_SESSION['lstname']=$lstname;
+          header("Location:dashboard.php");
         }
         else
         {
           echo"<script>
                alert('No User Found ! ');
-                window.location = 'http://localhost/Kwik_Wash_Laundry/userlogin.php';
+                window.location = 'userlogin.php';
                 </script>";
         }
     }
  }
- $_SESSION['fstname']=$fstname;
- $_SESSION['lstname']=$lstname;
+ 
 
 }
 
@@ -43,7 +45,7 @@ if(mysqli_num_rows($result) > 0){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="./css/loginstyle.css">
 </head>
 <body class="container">
     <div class="logo">

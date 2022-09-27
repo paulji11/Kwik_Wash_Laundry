@@ -17,7 +17,7 @@ $result=mysqli_query($conn,$sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
-    <link rel="stylesheet" href="user-man.css">
+    <link rel="stylesheet" href="./css/user-man.css">
 </head>
 <body>
     <header>
@@ -39,7 +39,7 @@ $result=mysqli_query($conn,$sql);
                 <h3>Dashboard</h3>
             </div>
             <div class="dash-content">
-                <a href="user-manage.html">User Management</a><br>
+                <a href="user-manage.php" style="background-color:white; color:rgb(6, 208, 244);">User Management</a><br>
             </div>
             <div class="dash-content">
                 <a>Request Status</a><br>

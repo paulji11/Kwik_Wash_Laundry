@@ -1,0 +1,103 @@
+.signleft{
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    left:0;
+    background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.2)),url("../images/signupimg2.jpg");
+    background-size: cover;
+    
+}
+.centered{
+    margin-top:250px;
+    margin-left: 50px;
+    align-items: center;
+}
+.heading{
+    text-align:center;
+    color:whitesmoke;
+    font-family: arial;
+    font-size: 75px;
+    
+
+}
+.subheading{
+    text-align:center;
+    color:#0ec4e1;
+    font-family: arial;
+    font-size: 50px;
+    
+
+}
+.signright{
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    right:0;
+    background-color: white;
+}
+.signleft img{
+    height:150px;
+    width:150px;
+    margin-top: -40px;
+}
+.signleft h2{
+    left: 120PX;
+    position: relative;
+    margin-top: -80px;
+    color:#0ec4e1;
+}
+.signform{
+    text-align: center;
+}
+.signform h2{
+    font-family: arial;
+    text-align:center;
+    
+}
+.logform{
+    top:50%;
+}
+.signform input{
+    border:0px;
+    border-bottom: 1px solid #8b8b8b33;
+    width: 280px;
+    height: 35px;
+}
+.signform input:focus-visible{
+    outline: none !important ;
+    border-color:#0ec4e1 ;
+     
+    
+}
+.form-submit-button{
+    height: 40px;
+    width: 280px;
+    background: #0e3fe1;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    padding-top: 0px;
+    cursor: pointer;
+}
+.logform h4{
+    left:25%;
+    color:#8b8b8b33;
+}
+.invalid{
+    display: none;
+    padding-top: 0px;
+    color:red;
+    font-size: small;
+    margin-left: -50px;
+}
+.invalid input::after{
+    animation: shake .3s;
+}

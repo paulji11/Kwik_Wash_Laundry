@@ -22,17 +22,15 @@ if(isset($_POST['signupbtn'])){
     
     if(empty($fstname)){
         $fstnameerror="Please enter the first name";
-    }elseif (!preg_match("/^([a-zA-Z' ]+)$/",$fstname)){
-        $fstnameerror="First name must use alphabets only";
-    }/*elseif (strlen($fstname)>50){
-        $fstnameerror="First name should be lessthan 50 characters";
-    }*/
+    }elseif (!preg_match("/^([a-zA-Z' ]{0,50})$/",$fstname)){
+        $fstnameerror="First name must contain alphabets only";
+    }
 
 
     if(empty($lastname)){
         $lastnameerror="Please enter the Last name";
-    }elseif (!preg_match("/^([a-zA-Z' ]+)$/",$lastname)){
-        $lastnameerror="First name must use alphabets only";
+    }elseif (!preg_match("/^([a-zA-Z' ]{0,50})$/",$lastname)){
+        $lastnameerror="First name must contain alphabets only";
     }
 
     if(empty($email)){
@@ -45,20 +43,20 @@ if(isset($_POST['signupbtn'])){
     if(empty($phone)){
         $phoneerror="Please enter the phone number";
     }elseif(!preg_match("/^([0-9' ]{10})$/",$phone)){
-        $phoneerror="Phone number should be digits";
+        $phoneerror="It should contain 10 digits";
     }
 
 
     if(empty($housename)){
         $housenameerror="Please enter the house name";
-    }elseif (!preg_match("/^([a-zA-Z' ]+)$/",$housename)){
+    }elseif (!preg_match("/^([a-zA-Z' ]{0,50})$/",$housename)){
         $housenameerror="House name should be alphabets only";
     }
 
 
     if(empty($city)){
         $cityerror="Please enter the city";
-    }elseif (!preg_match("/^([a-zA-Z' ]+)$/",$city)){
+    }elseif (!preg_match("/^([a-zA-Z' ]{0,30})$/",$city)){
         $cityerror="City name should not contain any special characters";
     }
 
@@ -66,14 +64,14 @@ if(isset($_POST['signupbtn'])){
     if(empty($pincode)){
         $pincodeerror="Please enter the pincode";
     }elseif (!preg_match("/^([0-9' ]{6})$/",$pincode)){
-        $pincodeerror="invalid pincode";
+        $pincodeerror="It should contain only 6 digits";
     }
     
 
 
     if(empty($passw)){
         $passwerror="Please enter the password";
-    }elseif(!$uppercase || !$lowercase || !$number || !$specialChars || !strlen($passw) > 8) {
+    }elseif(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($passw) < 8) {
         $passwerror="Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.";
     }
 
@@ -92,7 +90,7 @@ if(isset($_POST['signupbtn'])){
         echo"not inserted";
     }
     else{
-        header("Location:http://localhost/Kwik_Wash_Laundry/userlogin.php");
+        header("Location:userlogin.php");
 
     }
 }
@@ -107,7 +105,7 @@ if(isset($_POST['signupbtn'])){
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>signup</title>
-    <link rel='stylesheet' href='signstyle.css'>
+    <link rel='stylesheet' href='./css/signstyle.css'>
 </head>
 <body>
     <div class='signleft'>
@@ -143,7 +141,7 @@ if(isset($_POST['signupbtn'])){
                 <input type='password' class='input_form' placeholder=' Confirm  password' name='us_confirmpassword' ><br>
                 <span style='color:red;font-size:small;'><?php if(isset($confirmpassw))echo $confirmpasswerror ?><br></span>
                 <button class='form-submit-button'type='submit' value='Submit' name='signupbtn'><H3>SIGNUP</H3></button><br><br>
-                <span>Already have an account? </span><a href='./usersignup.php' style='color: deepskyblue; text-decoration: none;'>Login</a><br><br><br>
+                <span>Already have an account? </span><a href='userlogin.php' style='color: deepskyblue; text-decoration: none;'>Login</a><br><br><br>
             </form>
         </div>
     </div>
