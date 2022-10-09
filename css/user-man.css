@@ -41,9 +41,9 @@ header{
     height: 50px;
 }
 .profile-icon a {
-    margin-right: 8px;
+    margin-top: 15px;
     text-decoration: none;
-    color:black;
+    color:#0ec4e1;;
 }
 
 aside{
@@ -130,5 +130,6 @@ table , td ,th ,tbody{
     padding-left: 0px;
     padding-right: 0px;
     text-align: center;
+
   }
-   
+

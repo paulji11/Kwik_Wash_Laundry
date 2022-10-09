@@ -82,7 +82,7 @@ if(isset($_POST['signupbtn'])){
     }
     if(!$fstnameerror && !$lastnameerror && !$emailerror && !$phoneerror && !$housenameerror && !$cityerror && !$pincodeerror && !$passwerror && !$confirmpasswerror){
     $enpassw=base64_encode($passw);
-    $sql="insert into tb_user(us_fstname,us_lastname,us_email,us_phone,us_housename,us_city,us_pincode,us_password) value ('$fstname','$lastname','$email','$phone','$housename','$city','$pincode','$enpassw')";
+    $sql="insert into user(us_fstname,us_lastname,us_email,us_phone,us_housename,us_city,us_pincode,us_password) value ('$fstname','$lastname','$email','$phone','$housename','$city','$pincode','$enpassw')";
 	 $result=mysqli_query($conn,$sql);
 
     if(!$result)
@@ -123,7 +123,7 @@ if(isset($_POST['signupbtn'])){
             <h2>Register</h2>
             <form class='logform' method='POST'>
                 <input type='text' class='input_form' placeholder='First name' name='us_fstname' ><br>
-                <span style='color:red;font-size:small;'><?php if(isset($fstname))echo $fstnameerror ?><br></span>
+                <span style='background-color:red; color:white; font-size:small;'><?php if(isset($fstname))echo $fstnameerror ?><br></span>
                 <input type='text' class='input_form' placeholder='Last name' name='us_lastname'><br>
                 <span style='color:red;font-size:small;'><?php if(isset($lastname))echo $lastnameerror ?><br></span>
                 <input type='text' class='input_form' placeholder='Valid email-id' name='us_email'><br>

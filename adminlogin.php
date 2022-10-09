@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
           $passworderror="Fill the password field";
          }
        else{
-          $sql = "SELECT ad_firstname,ad_lastname,ad_password,ad_email FROM admin WHERE ad_email='$email'";
+          $sql = "SELECT * FROM admin WHERE ad_email='$email'";
          $result = mysqli_query($conn, $sql);
         
         if (mysqli_num_rows($result) != 0) {
@@ -24,10 +24,16 @@ if(isset($_POST['submit'])){
             
             $fname=$row['ad_firstname'];
             $lname=$row['ad_lastname'];
+            $phn=$row['ad_phone'];
+            $email=$row['ad_email'];
+            $id=$row['ad_id'];
             if($passw == $decoded)
                 {     
                 $_SESSION['firstname']=$fname;
                 $_SESSION['lastname']=$lname;
+                $_SESSION['email']=$email;
+                $_SESSION['phn']=$phn;
+                $_SESSION['id']=$id;
                 header("Location:ad_dashboard.php");
                 } 
                 else{

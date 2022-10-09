@@ -41,6 +41,7 @@ header{
     height: 50px;
 }
 .profile-icon a {
+    margin-top: 15px;
     text-decoration: none;
     color:black;
 }
@@ -105,6 +106,77 @@ aside{
     margin-top: 50px;
     margin-left: 40px;
 }
+
+main{
+    display:block;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 350px;
+    margin-top: 190px;
+
+}
+
+h2{
+    font-size: 40px;
+    color:aqua;
+}
+
+table , td ,th ,tbody{
+    border: 1px solid black;
+    color:rgb(12, 12, 13);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    width:100vh; 
+    height:50px;
+  }
+
+  .button{
+    margin-top: 50px;
+    text-align: center;
+  }
+.update_btn{
+    background-color: aqua;
+    color: white;
+    border-style: none;
+    width:160px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: medium;
+    cursor: pointer;
+
+}
+.update_btn:hover{
+    background-color:aqua;
+    color:rgb(0, 0, 0);
+}
+
+.update_form{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;   
+}
+
+.update_form input{
+    height: 30px;
+    margin-bottom: 20px;
+    margin-left: 300px;
+    text-align: center;
+}
+
+.update_form button{
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-style: none;
+    margin-left: 160px;
+}
+
 
 .dropbtn {
     background-color: #ffffff;

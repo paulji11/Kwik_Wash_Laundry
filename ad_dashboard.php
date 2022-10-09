@@ -14,16 +14,41 @@ $name=$fname." ".$lname;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/ad_dash.css">
+    <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+       window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+             var dropdowns = document.getElementsByClassName("dropdown-content");
+             var i;
+             for (i = 0; i < dropdowns.length; i++) {
+                 var openDropdown = dropdowns[i];
+                 if (openDropdown.classList.contains('show')) {
+                     openDropdown.classList.remove('show');
+                   }
+               }
+           }
+       }
+    </script>
 </head>
 <body>
     <header>
         <div class="logo-img">
-            <img src="./images/logo.png">
+            <a href="index.html"><img src="./images/logo.png"></a>
         </div>
         <div class="logo-profile">
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
-                <a href="5678"><span style="color:#0ec4e1;"><?php echo $name ;?></span></a>
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn" ><?php echo $name ;?></button>
+                <div id="myDropdown" class="dropdown-content">
+                     <a href="edit.php">Edit Profile</a>
+                    <a href="ad_signout.php">Sign Out</a>
+                    
+                      </div>
+                   </div>
             </div>
             
         </div>
@@ -38,16 +63,18 @@ $name=$fname." ".$lname;
                 <a href="user-manage.php">User Management</a><br>
             </div>
             <div class="dash-content">
-                <a>Request Status</a><br>
+                <a href="request_status.php">Request Status</a><br>
             </div>
             <div class="dash-content">
-                <a>Price Managemant</a><br>
+                <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
                 <a>Feedbacks or Complaints</a><br>
             </div>
         </div>
     </aside>
+
+
 
 </body>
 </html>

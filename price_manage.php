@@ -6,7 +6,7 @@ $fname=$_SESSION['firstname'];
 $lname=$_SESSION['lastname'];
 $name=$fname." ".$lname;
 
-$sql="SELECT * FROM user";
+$sql="SELECT * FROM price_tb WHERE price_id=1";
 $result=mysqli_query($conn,$sql);
 ?>
 
@@ -16,8 +16,8 @@ $result=mysqli_query($conn,$sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
-    <link rel="stylesheet" href="./css/user-man.css">
+    <title>Price Management</title>
+    <link rel="stylesheet" href="./css/price_style.css">
 </head>
 <body>
     <header>
@@ -27,7 +27,9 @@ $result=mysqli_query($conn,$sql);
         <div class="logo-profile">
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
-<a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
+                
+                <a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
+                
             </div>
             
         </div>
@@ -39,13 +41,13 @@ $result=mysqli_query($conn,$sql);
                 <h3>Dashboard</h3>
             </div>
             <div class="dash-content">
-                <a href="user-manage.php" style="background-color:white; color:rgb(6, 208, 244);">User Management</a><br>
+                <a href="user-manage.php">User Management</a><br>
             </div>
             <div class="dash-content">
-                <a href="request_status.php">Request Status</a><br>
+                <a>Request Status</a><br>
             </div>
             <div class="dash-content">
-                <a href="price_manage.php">Price Managemant</a><br>
+                <a href="price_manage.php" style="background-color:white; color:rgb(6, 208, 244);">Price Managemant</a><br>
             </div>
             <div class="dash-content">
                 <a>Feedbacks or Complaints</a><br>
@@ -55,32 +57,35 @@ $result=mysqli_query($conn,$sql);
     
     <main>
         <div class="table-from">
-            <h2>User Details</h2>
-            <table style="border-spacing: 0px; width:100vh;">
+            <h2>Price Details</h2>
+            <table style="border-spacing: 0px;">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phon Number</th>
-                        <th>Housename</th>
-                        <th>City</th>
-                        <th>Pincode</th>
+                        <th>Items</th>
+                        <th>Price</th>
                     </tr>
                     
                 </thead>
                 <tbody>
                     <?php
-                    if(mysqli_num_rows($result) > 0){
+                    if(mysqli_num_rows($result) != 0){
                         while($row=mysqli_fetch_assoc($result)){
                         echo"<tr>
-                                <td>{$row['us_fstname']}</td>
-                                <td>{$row['us_lastname']}</td>
-                                <td>{$row['us_email']}</td>
-                                <td>{$row['us_phone']}</td>
-                                <td>{$row['us_housename']}</td>
-                                <td>{$row['us_city']}</td>
-                                <td>{$row['us_pincode']}</td>";
+                                <td>Top Wear</td>
+                                <td>{$row['top_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Bottom Wear</td>
+                                <td>{$row['bottom_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Woollen Wear</td>
+                                <td>{$row['woollen_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Other Wear</td>
+                                <td>{$row['other_wear']}</td>
+                            </tr>";
                         }
                     
                     }
@@ -90,7 +95,14 @@ $result=mysqli_query($conn,$sql);
                 </tbody>
                 
             </table>
+
         </div>
+        <div class="button">
+                <a href="price_update.php">
+                 <button type="submit" name="submit" value="submit" class="update_btn" >
+                 Update Price</button>
+                </a>
+            </div>     
     </main>
 </body>
 </html>

@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $passw = $_POST['passw'];
 
 
-$sqllog= "SELECT us_fstname,us_lastname,us_password FROM tb_user WHERE us_email = '$email'";
+$sqllog= "SELECT us_id,us_fstname,us_lastname,us_password FROM user WHERE us_email = '$email'";
 
 $result = mysqli_query($conn,$sqllog);
 
@@ -17,10 +17,12 @@ if(mysqli_num_rows($result) > 0){
         $depassw=base64_decode($row['us_password']);
         $fstname=$row['us_fstname'];
         $lstname=$row['us_lastname'];
+        $us_id=$row['us_id'];
         if($passw == $depassw)
         {
             $_SESSION['fstname']=$fstname;
             $_SESSION['lstname']=$lstname;
+            $_SESSION['us_id']=$us_id;
           header("Location:dashboard.php");
         }
         else
@@ -33,7 +35,6 @@ if(mysqli_num_rows($result) > 0){
     }
  }
  
-
 }
 
 

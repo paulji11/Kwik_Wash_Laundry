@@ -120,22 +120,7 @@ main{
         width:25px;
         margin-top: 20px;
     }
-    .dashboard .item a .dropdown{
-        position:absolute;
-        right: 0;
-        margin:20px;
-        transition: .3s ease;
-
-    }
-    .dashboard .item .sub-menus a{
-        background: #86d7e4;
-
-    }
-    .dashboard .item .sub-menus a:hover{
-        background: #fff;
-        color: #86d7e4;
-
-    }
+    
     .count{
         color:white;
         font-size: 100px;
@@ -151,8 +136,81 @@ main{
 .sub-item.show{
     display: block;
 }
+.req-content{
+    height: 100%;
+    width: 85%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 85px;
+    right:0;
+    background-color: white;
+    }
+    .signform{
+        margin-left: 100px;
+    }
+    .signform h2{
+        font-family: arial;
+        margin-left: 250px;
+        
+        
+    }
+    .logform{
+        top:50%;
+    }
+    .signform input{
+        
+        width: 500px;
+        height: 40px;
+    }
+    .signform select{
+        
+        width: 500px;
+        height: 40px;
+    }
+    .signform input:focus-visible{
+        outline: none !important ;
+        border-color:#0ec4e1 ;
+         
+        
+    }
+    .signform select:focus-visible{
+        outline: none !important ;
+        border-color:#0ec4e1 ;
+         
+        
+    }
+    .form-submit-button{
+        background-color: #0ec4e1;
+        color:white;
+        width: 700px;
+        height: 40px;
+        border: 0px;
+        border-radius: 8px;
+        padding-top: 0px;
+        cursor: pointer;
+    }
+    .logform h4{
+        left:25%;
+        color:#8b8b8b33;
+    }
+    .formbg{
+        height: 600px;
+        width:900px;
+        background: linear-gradient(rgb(249, 252, 251), rgb(202, 221, 206));
+        margin-left: 100px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    .logform span{
+        font-size: larger;
+        font-style: bold;
+        font-weight: 100;
+        color: #0ec4e1;
+    }
 
-
+    
 .dropbtn {
     background-color: #ffffff;
     color:#0ec4e1;

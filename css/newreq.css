@@ -41,8 +41,9 @@ header{
     height: 50px;
 }
 .profile-icon a {
+    margin-top: 15px;
     text-decoration: none;
-    color:black;
+    color:#0ec4e1;;
 }
 
 aside{
@@ -106,40 +107,28 @@ aside{
     margin-left: 40px;
 }
 
-.dropbtn {
-    background-color: #ffffff;
-    color:#0ec4e1;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+main{
+    display:block;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 350px;
+    margin-top: 190px;
+}
+
+table , td ,th ,tbody{
+    border: 1px solid black;
+    color:rgb(12, 12, 13);
+    text-align: center;
+    border-collapse: collapse;
   }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #ffffff;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
+
+  .update-btn{
     color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    background-color: aqua;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 6px;
+    width: 65px;
   }
-  
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;}
+
