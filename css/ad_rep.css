@@ -114,21 +114,5 @@ main{
     padding: 0px;
     margin-left: 350px;
     margin-top: 190px;
+
 }
-
-table , td ,th ,tbody{
-    border: 1px solid black;
-    color:rgb(12, 12, 13);
-    text-align: center;
-    border-collapse: collapse;
-  }
-
-  .update-btn{
-    color: black;
-    background-color: aqua;
-    cursor: pointer;
-    border-style: none;
-    border-radius: 6px;
-    width: 65px;
-  }
-

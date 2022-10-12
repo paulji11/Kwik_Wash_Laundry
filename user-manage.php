@@ -2,6 +2,11 @@
 session_start();
 include 'connection.php';
 
+if(!isset($_SESSION['loggedin'])){
+    header("location:adminlogin.php");
+    
+}
+
 $fname=$_SESSION['firstname'];
 $lname=$_SESSION['lastname'];
 $name=$fname." ".$lname;
@@ -48,7 +53,7 @@ $result=mysqli_query($conn,$sql);
                 <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
-                <a>Feedbacks or Complaints</a><br>
+                <a>Feedbacks / Complaints</a><br>
             </div>
         </div>
     </aside>

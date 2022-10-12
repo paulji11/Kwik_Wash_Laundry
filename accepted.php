@@ -3,30 +3,44 @@
 session_start();
 include 'connection.php';
 
+if(!isset($_SESSION['loggedin'])){
+    header("location:adminlogin.php");
+    
+}
+
 $fname=$_SESSION['firstname'];
 $lname=$_SESSION['lastname'];
 $name=$fname." ".$lname;
 
 
 
-$innersql="SELECT  tb_user.us_id,
-                   tb_user.us_fstname,
-                   tb_user.us_lastname, 
+$innersql="SELECT  user.us_id,
+                   user.us_fstname,
+                   user.us_lastname, 
                    laundry_request.pickupdate,
                    laundry_request.top,
                    laundry_request.bottom,
                    laundry_request.woollen,
                    laundry_request.other,
+                   laundry_request.request_id,
                    laundry_request.status
-FROM tb_user
-INNER JOIN laundry_request ON tb_user.us_id=laundry_request.us_id 
+FROM user
+INNER JOIN laundry_request ON user.us_id=laundry_request.us_id 
  where laundry_request.status='Accepted';";
 
  $data=mysqli_query($conn,$innersql);
-if(isset($_POST['submit'])) {
-    $updsql="UPDATE laundry_request 
-    SET status='Processing'";
-    $updata=mysqli_query($conn,$updsql);
+ 
+if(isset($_POST['process'])) {
+   $req=$_POST['req'];
+    while($rows=mysqli_fetch_assoc($data)){
+        
+        $updsql="UPDATE laundry_request 
+        SET status='Processing' where request_id='$req'" ;
+        $updata=mysqli_query($conn,$updsql);
+        header("Location:accepted.php");
+    }
+  
+   
 }
  
 ?>
@@ -38,7 +52,7 @@ if(isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Request</title>
-    <link rel="stylesheet" href="./css/newreq.css">
+    <link rel="stylesheet" href="./css/req.css">
     
 </head>
 <body>
@@ -66,13 +80,13 @@ if(isset($_POST['submit'])) {
                 <a href="user-manage.php">User Management</a><br>
             </div>
             <div class="dash-content">
-                <a href="request_status.php" style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
+                <a href="request_status.php " style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
             </div>
             <div class="dash-content">
                 <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
-                <a>Feedbacks or Complaints</a><br>
+                <a href="report.php">Feedbacks / Complaints</a><br>
             </div>
         </div>
     </aside>
@@ -92,12 +106,13 @@ if(isset($_POST['submit'])) {
                 </tr>
                 <tbody>
                     <?php
-                     
+                        if(mysqli_num_rows($data) != 0 ){
                         while($row=mysqli_fetch_assoc($data)){
 
                             $fstname=$row['us_fstname'];
                             $lstname=$row['us_lastname'];
                             $username=$fstname." ".$lstname;
+                            $GLOBALS['req']=$row['request_id'];
                             echo"
                             
                     <tr>
@@ -109,23 +124,17 @@ if(isset($_POST['submit'])) {
                         <td>{$row['woollen']}</td>
                         <td>{$row['other']}</td>
                         <form method='post'>
-                    <td><button type='submit' id='update' name='submit' value='submit' class='update-btn' onclick='change_text()'>Update</button></td>
+                        <input type='text' name='req' value='$req' hidden>
+                    <td><button type='submit' id='update' name='process' value='process' class='update-btn'>Process</button></td>
                     </tr>
                     </form>";
-                
-             }
+                }
+            }
             ?>
                 </tbody>
                 
             </table>
         </div>
     </main>
-
-    <script>
-    function change_text(){
-    document.getElementById("update").innerHTML = "Processing";
-       }
-
-    </script>
 </body>
 </html>

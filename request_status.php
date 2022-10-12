@@ -2,6 +2,13 @@
 session_start();
 include 'connection.php';
 
+
+if(!isset($_SESSION['loggedin'])){
+    header("location:adminlogin.php");
+    
+}
+
+
 $fname=$_SESSION['firstname'];
 $lname=$_SESSION['lastname'];
 $name=$fname." ".$lname;
@@ -14,11 +21,11 @@ $acceptsqlcount="select count(*) as acceptcount from laundry_request where statu
 $acceptresult_count=mysqli_query($conn,$acceptsqlcount);
 $acceptdata=mysqli_fetch_assoc($acceptresult_count);
 
-$processsqlcount="select count(*) as processcount from laundry_request where status='proccessing'";
+$processsqlcount="select count(*) as processcount from laundry_request where status='Processing'";
 $processresult_count=mysqli_query($conn,$processsqlcount);
 $processdata=mysqli_fetch_assoc($processresult_count);
 
-$completedsqlcount="select count(*) as completedcount from laundry_request where status='completed'";
+$completedsqlcount="select count(*) as completedcount from laundry_request where status='Completed'";
 $completedresult_count=mysqli_query($conn,$completedsqlcount);
 $completeddata=mysqli_fetch_assoc($completedresult_count);
 ?>
@@ -31,7 +38,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Status</title>
-    <link rel="stylesheet" href="./css/req.css">
+    <link rel="stylesheet" href="./css/status.css">
 </head>
 <body>
 <header>
@@ -64,7 +71,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
                 <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
-                <a>Feedbacks or Complaints</a><br>
+                <a>Feedbacks / Complaints</a><br>
             </div>
         </div>
     </aside>
@@ -80,12 +87,12 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
                 <a href="accepted.php"><span class="count-text">Accepted</span></a>
             </div>
             <div class="onebox yellow">
-                <span class="count"><?php if($processdata['processcount']){echo $processdata['processcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">Proccessing</span>
+            <a href="Processing.php"> <span class="count"><?php if($processdata['processcount']){echo $processdata['processcount'];}else{ echo "0";} ?></span><br></a>
+                <a href="Processing.php"><span class="count-text">Processing</span></a>
             </div>
             <div class="onebox green">
-                <span class="count"><?php if($completeddata['completedcount']){echo $completeddata['completedcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">Completed</span>
+            <a href="Completed.php"><span class="count"><?php if($completeddata['completedcount']){echo $completeddata['completedcount'];}else{ echo "0";} ?></span><br></a>
+            <a href="Completed.php"> <span class="count-text">Completed</span></a>
             </div>
             
 

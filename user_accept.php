@@ -4,44 +4,19 @@ session_start();
 include 'connection.php';
 
 if(!isset($_SESSION['loggedin'])){
-    header("location:adminlogin.php");
+    header("location:userlogin.php");
     
 }
 
-$fname=$_SESSION['firstname'];
-$lname=$_SESSION['lastname'];
+$fname=$_SESSION['fstname'];
+$lname=$_SESSION['lstname'];
 $name=$fname." ".$lname;
+$us_id=$_SESSION['us_id'];
 
 
 
-$innersql="SELECT  user.us_id,
-                   user.us_fstname,
-                   user.us_lastname, 
-                   laundry_request.pickupdate,
-                   laundry_request.top,
-                   laundry_request.bottom,
-                   laundry_request.woollen,
-                   laundry_request.other,
-                   laundry_request.request_id,
-                   laundry_request.status
-FROM user
-INNER JOIN laundry_request ON user.us_id=laundry_request.us_id 
- where laundry_request.status='New Request';";
-
- $data=mysqli_query($conn,$innersql);
- 
-if(isset($_POST['accept'])) {
-   $req=$_POST['req'];
-    while($rows=mysqli_fetch_assoc($data)){
         
-        $updsql="UPDATE laundry_request 
-        SET status='Accepted' where request_id='$req'" ;
-        $updata=mysqli_query($conn,$updsql);
-        header("Location:newrequest.php");
-    }
   
-   
-}
  
 ?>
 
@@ -77,16 +52,16 @@ if(isset($_POST['accept'])) {
                 <h3>Dashboard</h3>
             </div>
             <div class="dash-content">
-                <a href="user-manage.php">User Management</a><br>
+                <a href="dashboard.php" style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
             </div>
             <div class="dash-content">
-                <a href="request_status.php " style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
+                <a href="us_laundryrequest.php">Laundry Request</a><br>
             </div>
             <div class="dash-content">
-                <a href="price_manage.php">Price Managemant</a><br>
+                <a href="#">Laundry History</a><br>
             </div>
             <div class="dash-content">
-                <a href="report.php">Feedbacks / Complaints</a><br>
+                <a href="report.php">Feedback / Complaints</a><br>
             </div>
         </div>
     </aside>
@@ -102,10 +77,26 @@ if(isset($_POST['accept'])) {
                     <th>No: of Bottom</th>
                     <th>No: of Woollen</th>
                     <th>No: of Other Clothes</th>
-                    <th>Status</th>
                 </tr>
                 <tbody>
                     <?php
+                    
+
+$innersql="SELECT  user.us_id,
+user.us_fstname,
+user.us_lastname, 
+laundry_request.pickupdate,
+laundry_request.top,
+laundry_request.bottom,
+laundry_request.woollen,
+laundry_request.other,
+laundry_request.request_id,
+laundry_request.status
+FROM user
+INNER JOIN laundry_request ON user.us_id=laundry_request.us_id 
+where laundry_request.status='Accepted' and user.us_id='$us_id';";
+
+$data=mysqli_query($conn,$innersql);
                         if(mysqli_num_rows($data) != 0 ){
                         while($row=mysqli_fetch_assoc($data)){
 
@@ -123,11 +114,7 @@ if(isset($_POST['accept'])) {
                         <td>{$row['bottom']}</td>
                         <td>{$row['woollen']}</td>
                         <td>{$row['other']}</td>
-                        <form method='post'>
-                        <input type='text' name='req' value='$req' hidden>
-                    <td><button type='submit' id='update' name='accept' value='accept' class='update-btn'>Accept</button></td>
-                    </tr>
-                    </form>";
+                        </tr>";
                 }
             }
             ?>
@@ -137,11 +124,5 @@ if(isset($_POST['accept'])) {
         </div>
     </main>
 
-    <script>
-    function change_text(){
-    document.getElementById("update").innerHTML = "Accepted";
-       }
-
-    </script>
 </body>
 </html>

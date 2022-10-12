@@ -2,6 +2,7 @@
 session_start();
 include 'connection.php';
 
+
 $emailerror=$passworderror=NULL;
 if(isset($_POST['submit'])){
     $email=$_POST['adlogin'];
@@ -29,12 +30,13 @@ if(isset($_POST['submit'])){
             $id=$row['ad_id'];
             if($passw == $decoded)
                 {     
+                $_SESSION['loggedin'] = TRUE;    
                 $_SESSION['firstname']=$fname;
                 $_SESSION['lastname']=$lname;
                 $_SESSION['email']=$email;
                 $_SESSION['phn']=$phn;
                 $_SESSION['id']=$id;
-                header("Location:ad_dashboard.php");
+                header("Location:request_status.php");
                 } 
                 else{
                     $passworderror="Incorrect Password";

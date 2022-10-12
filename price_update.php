@@ -2,6 +2,11 @@
 session_start();
 include 'connection.php';
 
+if(!isset($_SESSION['loggedin'])){
+    header("location:adminlogin.php");
+    
+}
+
 $fname=$_SESSION['firstname'];
 $lname=$_SESSION['lastname'];
 $name=$fname." ".$lname;

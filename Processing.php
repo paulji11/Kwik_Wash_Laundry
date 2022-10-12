@@ -26,18 +26,18 @@ $innersql="SELECT  user.us_id,
                    laundry_request.status
 FROM user
 INNER JOIN laundry_request ON user.us_id=laundry_request.us_id 
- where laundry_request.status='New Request';";
+ where laundry_request.status='Processing';";
 
  $data=mysqli_query($conn,$innersql);
  
-if(isset($_POST['accept'])) {
+if(isset($_POST['submit'])) {
    $req=$_POST['req'];
     while($rows=mysqli_fetch_assoc($data)){
         
         $updsql="UPDATE laundry_request 
-        SET status='Accepted' where request_id='$req'" ;
+        SET status='Completed' where request_id='$req'" ;
         $updata=mysqli_query($conn,$updsql);
-        header("Location:newrequest.php");
+        header("Location:Processing.php");
     }
   
    
@@ -86,7 +86,7 @@ if(isset($_POST['accept'])) {
                 <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
-                <a href="report.php">Feedbacks / Complaints</a><br>
+                <a href="report.php">Feedbacks or Complaints</a><br>
             </div>
         </div>
     </aside>
@@ -125,7 +125,7 @@ if(isset($_POST['accept'])) {
                         <td>{$row['other']}</td>
                         <form method='post'>
                         <input type='text' name='req' value='$req' hidden>
-                    <td><button type='submit' id='update' name='accept' value='accept' class='update-btn'>Accept</button></td>
+                    <td><button type='submit' id='update' name='submit' value='submit' class='update-btn'>Update</button></td>
                     </tr>
                     </form>";
                 }
@@ -136,12 +136,5 @@ if(isset($_POST['accept'])) {
             </table>
         </div>
     </main>
-
-    <script>
-    function change_text(){
-    document.getElementById("update").innerHTML = "Accepted";
-       }
-
-    </script>
 </body>
 </html>

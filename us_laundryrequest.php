@@ -2,6 +2,11 @@
 session_start();
 include 'connection.php';
 
+if(!isset($_SESSION['loggedin'])){
+    header("location:userlogin.php");
+    
+}
+
 $fstname=$_SESSION['fstname'];
 $lstname=$_SESSION['lstname'];
 $name=$fstname." ".$lstname;
@@ -32,7 +37,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>user</title>
-    <link rel="stylesheet" href="./dashboard.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <script>
         function myFunction() {
           document.getElementById("myDropdown").classList.toggle("show");
@@ -75,7 +80,7 @@ if(isset($_POST['submit'])){
             <div class="item"><a href="dashboard.php"><span>Request Status</span></a></div>
             <div class="item" ><a  href="us_laundryrequest.php" style="background-color:white; color:rgb(6, 208, 244);"><span>Laundry Request</span></a>
             <div class="item"><a href="#"><span>Laundry History</span></a></div>
-            <div class="item"><a href="#"><span>History</span></a></div>
+            <div class="item"><a href="report.php"><span>Feedbacks / Complaints</span></a></div>
             
 
             

@@ -5,20 +5,21 @@ include 'connection.php';
 $fstname=$_SESSION['fstname'];
 $lstname=$_SESSION['lstname'];
 $name=$fstname." ".$lstname;
+$us_id=$_SESSION['us_id'];
 
-$newsqlcount="select count(*) as newcount from laundry_request where status='New Request'";
+$newsqlcount="select count(*) as newcount from laundry_request where status='New Request'and us_id='$us_id'";
 $newresult_count=mysqli_query($conn,$newsqlcount);
 $newdata=mysqli_fetch_assoc($newresult_count);
 
-$acceptsqlcount="select count(*) as acceptcount from laundry_request where status='Accepted'";
+$acceptsqlcount="select count(*) as acceptcount from laundry_request where status='Accepted' and us_id='$us_id'";
 $acceptresult_count=mysqli_query($conn,$acceptsqlcount);
 $acceptdata=mysqli_fetch_assoc($acceptresult_count);
 
-$processsqlcount="select count(*) as processcount from laundry_request where status='proccessing'";
+$processsqlcount="select count(*) as processcount from laundry_request where status='Processing' and us_id='$us_id'";
 $processresult_count=mysqli_query($conn,$processsqlcount);
 $processdata=mysqli_fetch_assoc($processresult_count);
 
-$completedsqlcount="select count(*) as completedcount from laundry_request where status='completed'";
+$completedsqlcount="select count(*) as completedcount from laundry_request where status='Completed' and us_id='$us_id'";
 $completedresult_count=mysqli_query($conn,$completedsqlcount);
 $completeddata=mysqli_fetch_assoc($completedresult_count);
 
@@ -29,7 +30,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script>
@@ -65,7 +66,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
                 <button onclick="myFunction()" class="dropbtn" ><?php echo $name ;?></button>
                 <div id="myDropdown" class="dropdown-content">
                      <a href="#home">Edit Profile</a>
-                    <a href="#about">Sign Out</a>
+                    <a href="us_signout.php">Sign Out</a>
                     
                       </div>
                    </div>
@@ -91,20 +92,20 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
     <main>
         <div class="content">
             <div class="onebox red">
-                <span class="count"><?php if($newdata['newcount']){echo $newdata['newcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">New Request</span>
+            <a href="user_request.php"><span class="count"><?php if($newdata['newcount']){echo $newdata['newcount'];}else{ echo "0";} ?></span><br></a>
+            <a href="user_request.php"><span class="count-text">New Request</span></a>
             </div>
             <div class="onebox orange">
-                <span class="count"><?php if($acceptdata['acceptcount']){echo $acceptdata['acceptcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">Accepted</span>
+            <a href="user_accept.php"><span class="count"><?php if($acceptdata['acceptcount']){echo $acceptdata['acceptcount'];}else{ echo "0";} ?></span><br></a>
+            <a href="user_accept.php"> <span class="count-text">Accepted</span></a>
             </div>
             <div class="onebox yellow">
-                <span class="count"><?php if($processdata['processcount']){echo $processdata['processcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">Proccessing</span>
+            <a href="user_process.php"><span class="count"><?php if($processdata['processcount']){echo $processdata['processcount'];}else{ echo "0";} ?></span><br></a>
+            <a href="user_process.php"><span class="count-text">Processing</span></a>
             </div>
             <div class="onebox green">
-                <span class="count"><?php if($completeddata['completedcount']){echo $completeddata['completedcount'];}else{ echo "0";} ?></span><br>
-                <span class="count-text">Completed</span>
+            <a href="user_completed.php"><span class="count"><?php if($completeddata['completedcount']){echo $completeddata['completedcount'];}else{ echo "0";} ?></span><br></a>
+            <a href="user_completed.php"><span class="count-text">Completed</span></a>
             </div>
             
 
