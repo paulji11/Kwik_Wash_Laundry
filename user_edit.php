@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
     }
 
     if(!$fstnameerror && !$lastnameerror && !$emailerror && !$phoneerror && !$housenameerror && !$cityerror && !$pincodeerror ){
-        echo "hggfghgcg";
+        
         $edsql="UPDATE user
         SET 
           us_fstname='$fstname',
@@ -105,7 +105,7 @@ if(isset($_POST['submit'])){
         elseif($passw != $conpassw){
             $confirmpasswerror="Password and confirm password should be same";
         }
-        if(!$passwerror &&!$confirmpasswerror){
+        if(!$passwerror && !$confirmpasswerror){
         $enpassw=base64_encode($passw);
 
         $pasql="UPDATE user 
