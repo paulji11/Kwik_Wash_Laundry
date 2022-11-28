@@ -39,6 +39,24 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Status</title>
     <link rel="stylesheet" href="./css/status.css">
+    <script>
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+       window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+             var dropdowns = document.getElementsByClassName("dropdown-content");
+             var i;
+             for (i = 0; i < dropdowns.length; i++) {
+                 var openDropdown = dropdowns[i];
+                 if (openDropdown.classList.contains('show')) {
+                     openDropdown.classList.remove('show');
+                   }
+               }
+           }
+       }
+    </script>
 </head>
 <body>
 <header>
@@ -48,31 +66,34 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
         <div class="logo-profile">
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
-                
-                <a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
-                
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn" ><?php echo $name ;?></button>
+                <div id="myDropdown" class="dropdown-content">
+                     <a href="edit.php">Edit Profile</a>
+                    <a href="ad_signout.php">Sign Out</a>
+                    
+                      </div>
+                   </div>
             </div>
             
         </div>
     </header>
 
     <aside>
-        <div class="dash">
+    <div class="dash">
             <div class="dashhead">
                 <h3>Dashboard</h3>
             </div>
-            <div class="dash-content">
-                <a href="user-manage.php">User Management</a><br>
-            </div>
-            <div class="dash-content">
-                <a style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
-            </div>
-            <div class="dash-content">
-                <a href="price_manage.php">Price Managemant</a><br>
-            </div>
-            <div class="dash-content">
-                <a>Feedbacks / Complaints</a><br>
-            </div>
+            
+                <a href="user-manage.php">User Management</a>
+            
+            
+                <a href="request_status.php"  style="background-color:white; color:rgb(6, 208, 244);">Request Status</a>
+            
+                <a href="price_manage.php">Price Management</a>
+            
+                <a href="ad_report.php">Feedbacks / Complaints</a>
+            
         </div>
     </aside>
 

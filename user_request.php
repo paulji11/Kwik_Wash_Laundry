@@ -3,7 +3,7 @@
 session_start();
 include 'connection.php';
 
-if(!isset($_SESSION['loggedin'])){
+if(!isset($_SESSION['userin'])){
     header("location:userlogin.php");
     
 }
@@ -103,13 +103,15 @@ $data=mysqli_query($conn,$innersql);
                             $fstname=$row['us_fstname'];
                             $lstname=$row['us_lastname'];
                             $username=$fstname." ".$lstname;
+                            $date = date_create(($row['pickupdate'])); 
+                            $publishDate = date_format($date,"d-m-Y");
                             $GLOBALS['req']=$row['request_id'];
                             echo"
                             
                     <tr>
                         <td>{$row['us_id']}</td>
                         <td >$username</td>
-                        <td>{$row['pickupdate']}</td>
+                        <td>$publishDate</td>
                         <td>{$row['top']}</td>
                         <td>{$row['bottom']}</td>
                         <td>{$row['woollen']}</td>

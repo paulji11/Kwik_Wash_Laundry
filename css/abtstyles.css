@@ -1,0 +1,141 @@
+body{
+    background:linear-gradient(to left, #1C7CE0, #150051);
+  
+     background-attachment: fixed;
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+     margin:0;
+     padding:0;
+     overflow-x: hidden;
+     color: white;
+     font-family: Arial, Helvetica, sans-serif;
+   }
+   .header{
+   
+   width: 100vw;
+   background-color: #150051;
+   display: flex;
+   }
+   .imgclass img{
+    height: 105px;
+
+   }
+   .heading{
+   font-size: 30px;
+   font-family: verdana;
+   letter-spacing: 1px;
+   margin-top: 40px;
+   font-weight: 800;
+   }
+   .content h1{
+     font-size: 80px;
+     line-height: 0px;
+     color:transparent;
+     -webkit-text-stroke: .1px #fff;
+     font-family:impact;
+     letter-spacing: 7px;
+     margin-top: 173px;
+     -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+     
+   }
+   
+   .content {
+   margin:  -100px -150px;
+   display: grid;
+   text-align: center;
+   
+    height:500px;
+    width:800px;
+   }
+   .content h3{
+   margin-top: -44px;
+   
+   font-family: arial;
+   font-size: larger;
+   line-height: 30px;
+   }
+   .wall img{
+   height:500px;
+   width:500px;
+   margin-top: -50px;
+   }
+   .content a{
+   
+     height: 40px;
+     width: 180px;
+     background: #3f51b5;
+     border: 2px solid rgb(255 255 255);
+     text-decoration: none;
+     display: flex;
+     
+     align-items: center;
+     margin: -49px 304px;
+     padding-left:40px;
+     padding-right: 0px;
+     border-radius: 30px;
+     color:#fff;
+   font-family: arial;
+     font-size: medium;
+     font-weight: 900;
+     width:180px;
+     text-align:center;
+   
+   
+   }
+   .content a:hover{
+   color:#3f51b5;
+   background: #fff;
+   
+   border: 2px solid #3f51b5;
+   
+   }
+ 
+   
+   main{
+  
+     
+   }
+   .about p{
+     font-size: 18px;
+   }
+   .abtimg img{
+    height:80vh;
+   }
+
+   .y-heading{
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.y-heading p{
+    font-size:30px;
+    font-weight: bold;
+}
+
+.underline{
+    width: 280px;
+    height: 1px;
+    background-color: #dedede;
+    margin: auto;
+    clear: both;
+    margin-top: 4px;
+}
+
+.ycards{
+  background-color: black;
+  margin-left: 40px;
+  height: 40vh;
+  width: 50vh;
+}
+.ycard{
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}
+.main-abt{
+  margin-top: 3vh;
+    margin-left: 20vh;
+     display: flex;
+}

@@ -65,22 +65,20 @@ if(isset($_POST['submit'])){
     </header>
 
     <aside>
-        <div class="dash">
+    <div class="dash">
             <div class="dashhead">
                 <h3>Dashboard</h3>
             </div>
-            <div class="dash-content">
-                <a href="user-manage.php">User Management</a><br>
-            </div>
-            <div class="dash-content">
-                <a>Request Status</a><br>
-            </div>
-            <div class="dash-content">
-                <a href="price_manage.php" style="background-color:white; color:rgb(6, 208, 244);">Price Managemant</a><br>
-            </div>
-            <div class="dash-content">
-                <a>Feedbacks or Complaints</a><br>
-            </div>
+            
+                <a href="user-manage.php" >User Management</a>
+            
+            
+                <a href="request_status.php">Request Status</a>
+            
+                <a href="price_manage.php" style="background-color:white; color:rgb(6, 208, 244);">Price Management</a>
+            
+                <a href="ad_report.php">Feedbacks / Complaints</a>
+            
         </div>
     </aside>
     
@@ -91,13 +89,13 @@ if(isset($_POST['submit'])){
         <h2>Update Price</h2>
          <form method="post">
             <label style="font-weight:bold;">Price of Top-Wear:</label><br>
-              <input type="text" name="top" placeholder="Price of TopWear"><br>
+              <input type="text" name="top" placeholder="Price of TopWear"  pattern='[0-9]{0,2}'  required ><br>
             <label style="font-weight:bold">Price of Bottom-Wear:</label><br>
-              <input type="text" name="bottom" placeholder="Price of BottomWear"><br>
+              <input type="text" name="bottom" placeholder="Price of BottomWear" pattern='[0-9]{0,2}'  required><br>
             <label style="font-weight:bold">Price of Woollen-Wear:</label><br>
-             <input type="text" name="woollen" placeholder="Price of WoollenWear"><br>
+             <input type="text" name="woollen" placeholder="Price of WoollenWear" pattern='[0-9]{0,2}'  required><br>
             <label style="font-weight:bold">Price of Other-Wear:</label><br>
-             <input type="text" name="other" placeholder="Price of OtherWear"><br>
+             <input type="text" name="other" placeholder="Price of OtherWear" pattern='[0-9]{0,2}'  required><br>
             
              <button type="submit" name="submit" value="submit">Submit</button>
         

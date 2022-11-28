@@ -71,10 +71,10 @@ $name=$fname." ".$lname;
                 <a href="request_status.php">Request Status</a><br>
             </div>
             <div class="dash-content">
-                <a href="price_manage.php">Price Managemant</a><br>
+                <a href="price_manage.php">Price Management</a><br>
             </div>
             <div class="dash-content">
-                <a>Feedbacks / Complaints</a><br>
+                <a href="ad_report.php">Feedbacks / Complaints</a><br>
             </div>
         </div>
     </aside>

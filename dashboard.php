@@ -2,6 +2,10 @@
 session_start();
 include 'connection.php';
 
+if(!isset($_SESSION['userin'])){
+    header("location:userlogin.php");
+    
+}
 $fstname=$_SESSION['fstname'];
 $lstname=$_SESSION['lstname'];
 $name=$fstname." ".$lstname;
@@ -23,6 +27,9 @@ $completedsqlcount="select count(*) as completedcount from laundry_request where
 $completedresult_count=mysqli_query($conn,$completedsqlcount);
 $completeddata=mysqli_fetch_assoc($completedresult_count);
 
+$pricesql="SELECT * FROM price_tb WHERE price_id=1";
+$priceresult=mysqli_query($conn,$pricesql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +37,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Request Status</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script>
@@ -65,7 +72,7 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
              <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn" ><?php echo $name ;?></button>
                 <div id="myDropdown" class="dropdown-content">
-                     <a href="#home">Edit Profile</a>
+                     <a href="user_edit.php">Edit Profile</a>
                     <a href="us_signout.php">Sign Out</a>
                     
                       </div>
@@ -80,11 +87,8 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
             </div>
             <div class="item"><a href="dashboard.php" style="background-color:white; color:rgb(6, 208, 244);"><span>Request Status</span></a></div>
             <div class="item"><a href="us_laundryrequest.php" ><span>Laundry Request</span></a></div>
-            <div class="item"><a href="#"><span>Laundry History</span></a></div>
-            <div class="item"><a href="report.php"><span>Feedback/Complaints</span></a></div>
-            
-
-            
+            <div class="item"><a href="laundry_history.php"><span>Laundry History</span></a></div>
+            <div class="item"><a href="report.php"><span>Feedback / Complaints</span></a></div>
         </div>
 
     </aside>
@@ -107,7 +111,47 @@ $completeddata=mysqli_fetch_assoc($completedresult_count);
             <a href="user_completed.php"><span class="count"><?php if($completeddata['completedcount']){echo $completeddata['completedcount'];}else{ echo "0";} ?></span><br></a>
             <a href="user_completed.php"><span class="count-text">Completed</span></a>
             </div>
-            
+        </div>
+
+        <div class="table-from">
+            <h2>Price Details</h2>
+            <table style="border-spacing: 0px;">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Price</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <?php
+                    if(mysqli_num_rows($priceresult) != 0){
+                        while($row=mysqli_fetch_assoc($priceresult)){
+                        echo"<tr>
+                                <td>Top Wear</td>
+                                <td>{$row['top_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Bottom Wear</td>
+                                <td>{$row['bottom_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Woollen Wear</td>
+                                <td>{$row['woollen_wear']}</td>
+                            </tr>
+                            <tr>
+                                <td>Other Wear</td>
+                                <td>{$row['other_wear']}</td>
+                            </tr>";
+                        }
+                    
+                    }
+                    
+                    ?>
+                    
+                </tbody>
+                
+            </table>
 
         </div>
 

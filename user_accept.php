@@ -3,7 +3,7 @@
 session_start();
 include 'connection.php';
 
-if(!isset($_SESSION['loggedin'])){
+if(!isset($_SESSION['userin'])){
     header("location:userlogin.php");
     
 }
@@ -13,11 +13,6 @@ $lname=$_SESSION['lstname'];
 $name=$fname." ".$lname;
 $us_id=$_SESSION['us_id'];
 
-
-
-        
-  
- 
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +34,7 @@ $us_id=$_SESSION['us_id'];
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
                 
-                <a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
+                <a><?php echo $name ;?></a>
                 
             </div>
             
@@ -51,16 +46,16 @@ $us_id=$_SESSION['us_id'];
             <div class="dashhead">
                 <h3>Dashboard</h3>
             </div>
-            <div class="dash-content">
+            <div class="item">
                 <a href="dashboard.php" style="background-color:white; color:rgb(6, 208, 244);">Request Status</a><br>
             </div>
-            <div class="dash-content">
+            <div class="item">
                 <a href="us_laundryrequest.php">Laundry Request</a><br>
             </div>
-            <div class="dash-content">
-                <a href="#">Laundry History</a><br>
+            <div class="item">
+                <a href="laundry_history.php">Laundry History</a><br>
             </div>
-            <div class="dash-content">
+            <div class="item">
                 <a href="report.php">Feedback / Complaints</a><br>
             </div>
         </div>
@@ -103,13 +98,16 @@ $data=mysqli_query($conn,$innersql);
                             $fstname=$row['us_fstname'];
                             $lstname=$row['us_lastname'];
                             $username=$fstname." ".$lstname;
+                            $date = date_create(($row['pickupdate'])); 
+                            $publishDate = date_format($date,"d-m-Y");
+                            
                             $GLOBALS['req']=$row['request_id'];
                             echo"
                             
                     <tr>
                         <td>{$row['us_id']}</td>
                         <td >$username</td>
-                        <td>{$row['pickupdate']}</td>
+                        <td>$publishDate</td>
                         <td>{$row['top']}</td>
                         <td>{$row['bottom']}</td>
                         <td>{$row['woollen']}</td>

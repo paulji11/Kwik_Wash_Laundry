@@ -2,6 +2,7 @@ body{
     background:white;
     margin: 0px;
     padding: 0px;
+    font-family: arial;
 }
 
 header{
@@ -29,6 +30,7 @@ header{
 .logo-profile{
     float: right;
     display: flex;
+    margin-right: 16px;
 }
 
 .profile-icon{
@@ -38,7 +40,7 @@ header{
 }
 
 .profile-icon img{
-    height: 50px;
+    height: 40px;
 }
 .profile-icon a {
     text-decoration: none;
@@ -121,6 +123,7 @@ aside{
   .dropdown {
     position: relative;
     display: inline-block;
+    margin-top: 12px;
   }
   
   .dropdown-content {

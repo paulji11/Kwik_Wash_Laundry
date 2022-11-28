@@ -112,20 +112,22 @@ if(isset($_POST['submit'])) {
                             $fstname=$row['us_fstname'];
                             $lstname=$row['us_lastname'];
                             $username=$fstname." ".$lstname;
+                            $date = date_create(($row['pickupdate'])); 
+                            $publishDate = date_format($date,"d-m-Y");
                             $GLOBALS['req']=$row['request_id'];
                             echo"
                             
                     <tr>
                         <td>{$row['us_id']}</td>
                         <td >$username</td>
-                        <td>{$row['pickupdate']}</td>
+                        <td>$publishDate</td>
                         <td>{$row['top']}</td>
                         <td>{$row['bottom']}</td>
                         <td>{$row['woollen']}</td>
                         <td>{$row['other']}</td>
                         <form method='post'>
                         <input type='text' name='req' value='$req' hidden>
-                    <td><button type='submit' id='update' name='submit' value='submit' class='update-btn'>Update</button></td>
+                    <td><button type='submit' id='update' name='submit' value='submit' class='update-btn'>Complete</button></td>
                     </tr>
                     </form>";
                 }

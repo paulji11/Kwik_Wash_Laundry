@@ -2,6 +2,7 @@ body{
     background:white;
     margin: 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -29,6 +30,7 @@ header{
 .logo-profile{
     float: right;
     display: flex;
+    margin-right: 16px;
 }
 
 .profile-icon{
@@ -38,10 +40,11 @@ header{
 }
 
 .profile-icon img{
-    height: 50px;
+    height: 40px;
 }
 .profile-icon a {
     margin-top: 15px;
+    margin-left: 6px;
     text-decoration: none;
     color:#0ec4e1;;
 }
@@ -116,3 +119,63 @@ main{
     margin-top: 190px;
 
 }
+
+.report_cards{
+    margin: 0px;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 20px;
+}
+
+.report_card{
+    background-color: rgb(206, 192, 192);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+h3{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+
+.report_header{
+    margin-top: 20px;
+}
+.report_header p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 15px;
+}
+
+.report_info p{
+    margin-top: 0px;
+    padding: 10px;
+}
+
+.check{
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+button{
+    background-color:  rgb(206, 192, 192);
+    border-style: none;
+}
+
+.check-icn{
+    height: 38px;
+    cursor: pointer;
+}
+
+

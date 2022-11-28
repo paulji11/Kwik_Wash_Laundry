@@ -1,0 +1,57 @@
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    font-family: arial;
+}
+.card{
+    width:30rem;
+    height:30rem;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid #0e3fe1;
+}
+.signform{
+    text-align: center;
+    margin-top: 0;
+}
+.signform h2{
+    font-family: arial;
+    text-align:center;
+    
+}
+.logform{
+    top:50%;
+}
+.signform input{
+    border:0px;
+    border-bottom: 1px solid #8b8b8b33;
+    width: 280px;
+    height: 35px;
+}
+.signform input:focus-visible{
+    outline: none !important ;
+    border-bottom: 1px solid #0ec4e1;
+     
+    
+}
+.form-submit-button{
+    height: 40px;
+    width: 280px;
+    background: #0e3fe1;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    padding-top: 0px;
+    cursor: pointer;
+}
+.logform h4{
+    left:25%;
+    color:#8b8b8b33;
+}

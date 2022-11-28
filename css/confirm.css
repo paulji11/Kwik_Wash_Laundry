@@ -1,0 +1,54 @@
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+    font-family: arial;
+}
+.confirm{
+    width: 700px;
+    height: 500px;
+    background-color: aqua;
+    display: grid;
+    justify-content: center;
+    
+}
+.confirm img{
+    height: 100px;
+    width: 100px;
+    margin-top: -56px;
+    margin-left: 102px;
+}
+.success{
+    margin-top: 132px;
+    margin-left: -500px;
+}
+.com{
+    font-weight: 900;
+    color:black;
+    font-size: 30px;
+    margin-left: 23px;
+
+}
+.sub-com{
+    font-weight: 300;
+    font-size: 25px;
+    color: rgb(36, 34, 34);
+    margin-top: -71px;
+}
+.confirm a{
+    width: 345px;
+    height: 61px;
+    background: #4caf50;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-family: arial;
+    font-weight: 600;
+    font-size: 40px;
+}

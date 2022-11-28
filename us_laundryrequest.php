@@ -2,7 +2,7 @@
 session_start();
 include 'connection.php';
 
-if(!isset($_SESSION['loggedin'])){
+if(!isset($_SESSION['userin'])){
     header("location:userlogin.php");
     
 }
@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
     $woollen=$_POST['us_woollen'];
     $other=$_POST['us_other'];
     $service=$_POST['us_service'];
-
+    
     $sql="INSERT INTO laundry_request(pickupdate,top,bottom,woollen,other,service_type,us_id) VALUES ('$pickupdate','$top','$bottom','$woollen','$other','$service','$us_id')";
 	 $result=mysqli_query($conn,$sql);
 
@@ -28,6 +28,13 @@ if(isset($_POST['submit'])){
     {
         echo"not inserted";
     }
+    else{
+        $last_id=$conn->insert_id;
+        $_SESSION['req_id']=$last_id;
+        header("location:bill.php");
+    }
+    
+
 }
 ?>
 <!DOCTYPE html>
@@ -36,7 +43,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user</title>
+    <title>Laundry Request</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <script>
         function myFunction() {
@@ -65,8 +72,8 @@ if(isset($_POST['submit'])){
         
         <div class="logo-profile">
           <div class="userimg">
-             <a href="#1234"><img src="./images/user.png"></a>
-             <a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
+             <a href="#user"><img src="./images/user.png"></a>
+             <a><?php echo $name ;?></a>
 
             </div>
         </div>
@@ -79,7 +86,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="item"><a href="dashboard.php"><span>Request Status</span></a></div>
             <div class="item" ><a  href="us_laundryrequest.php" style="background-color:white; color:rgb(6, 208, 244);"><span>Laundry Request</span></a>
-            <div class="item"><a href="#"><span>Laundry History</span></a></div>
+            <div class="item"><a href="laundry_history.php"><span>Laundry History</span></a></div>
             <div class="item"><a href="report.php"><span>Feedbacks / Complaints</span></a></div>
             
 
@@ -92,19 +99,29 @@ if(isset($_POST['submit'])){
     <div class="req-content">
     <div class="formbg">
     <div class='signform'>
+    <?php 
+
+$month = date('m');
+$day = date('d');
+$year = date('Y');
+
+$today = $year . '-' . $month . '-' . $day;
+?>
             
-        <h2>Booking</h2>
+        <h2>Laundry Requesting</h2>
         <form class='logform' method='POST'>
-            <label ><span>Pick-up date/drop date:</span></label><input type='date' class='input_form'  name='us_dateofdrop' ><br><br><br>
-                <label ><span>No of Top wear:</span></label><input type='text' class='input_form'  name='us_top'><br><br><br>
-                <label ><span>No of Bottom wear:</span></label><input type='text' class='input_form'  name='us_bottom'><br><br><br>
-                <label ><span>No of woolen wear:</span></label><input type='text' class='input_form'  name='us_woollen'><br><br><br>
-                <label ><span>No of Other clothes:</span></label><input type='text' class='input_form'  name='us_other'><br><br><br>
-                <label ><span>Service Type:</span></label><select name="us_service" id="service" ><br><br><br>
-                    <option value="Select">Select</option>
+            <label ><span>Pick-up date/drop date:</span></label><input type='date' class='input_form'  name='us_dateofdrop' value="<?php echo $today; ?>" min="<?php echo $today; ?>" required><br><br><br>
+            <label ><span>No of Top wear:</span></label><input type='text' pattern='[0-9]{0,2}' title='number of top wear must be under 100' class='input_form'  name='us_top'  required><br><br><br>
+                <label ><span>No of Bottom wear:</span></label><input type='text' pattern='[0-9]{0,2}' title='number of bottom wear must be under 100' class='input_form' name='us_bottom'  required><br><br><br>
+                <label ><span>No of woolen wear:</span></label><input type='text' pattern='[0-9]{0,2}' title='number of woollen wear must be under 100' class='input_form'  name='us_woollen'  required><br><br><br>
+                <label ><span>No of Other clothes:</span></label><input type='text' pattern='[0-9]{0,2}' title='number of other wear must be under 100' class='input_form'  name='us_other'  required><br><br><br>
+                <label ><span>Service Type:</span></label>
+                <select name="us_service" id="service" required ><br><br><br>
+                    <option value="" disabled selected>Select</option>
                     <option value="Pickup service">Pickup service</option>
-                    <option value="Drop service">Drop service</option></select><br><br><br>
-               <button class='form-submit-button'type='submit' value='submit' name='submit'><H3>Submit</H3></button><br><br>
+                    <option value="Drop service">Drop service</option>
+                </select><br><br><br>
+              <button class='form-submit-button'type='submit' value='submit' name='submit'><H3>Submit</H3></button><br><br>
         </form>
     </div>
 

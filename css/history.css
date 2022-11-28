@@ -1,0 +1,104 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+}
+header{
+    height: 75px;
+    background-color:white;
+    position:fixed;
+    z-index: 10;
+    margin:0px;
+    width: 100vw;
+    display:flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.head-logo img{
+    width: 120px;
+    height:120px;
+    margin-top: -25px;
+}
+
+.logo-profile{
+    float:right;
+    margin-top: 16px;
+    margin-right: 20px;
+}
+
+.userimg{
+    display: flex; 
+    align-items: center;
+}
+
+.userimg a{
+    text-decoration: none;
+    color: #0ec4e1;
+    margin-top: 10px;
+    
+}
+.userimg img{
+    float:right;
+    display: flex;
+    width:40px;
+    height: 40px; 
+}
+aside{
+    height:100vh;
+    width: 15%;
+    float:left;
+    position: fixed;
+    margin-top: 60px;
+    background: #0ec4e1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.dashboard a{
+    color: #fff;
+    display:block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transform: .5s;
+    transition-property: background;
+}
+.dashboard a:hover{
+    background:white;
+    color:#0ec4e1;
+}
+.toggle{
+    float:right;
+}
+main{
+    float: right;
+    background: #ffffff; 
+    height: 100vh;
+     width: 100vw;
+    }
+    .dashhead{
+        width:100%;
+        height:50px;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashhead h3{
+        margin-top: 50px;
+        margin-left: 40px;
+    }
+    main{
+        display:block;
+        position: fixed;
+        margin: 0px;
+        padding: 0px;
+        margin-left: 280px;
+        margin-top: 190px;
+    }
+    
+    table , td ,th ,tbody{
+        border: 1px solid black;
+        color:rgb(12, 12, 13);
+        text-align: center;
+        border-collapse: collapse;
+      }

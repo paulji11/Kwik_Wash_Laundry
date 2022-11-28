@@ -2,7 +2,7 @@
 session_start();
 include 'connection.php';
 
-if(!isset($_SESSION['loggedin'])){
+if(!isset($_SESSION['userin'])){
     header("location:userlogin.php");
     
 }
@@ -47,7 +47,7 @@ if(isset($_POST['repsubmit'])){
              <a href="#1234"><img src="./images/user.png"></a>
                 <a><?php echo $name ;?></a>
         </div>
-       
+</div>
     </header>
 
     <aside>
@@ -57,8 +57,8 @@ if(isset($_POST['repsubmit'])){
             </div>
             <div class="item"><a href="dashboard.php"><span>Request Status</span></a></div>
             <div class="item"><a href="us_laundryrequest.php" ><span>Laundry Request</span></a></div>
-            <div class="item"><a href="#"><span>Laundry History</span></a></div>
-            <div class="item" ><a href="report.php" style="background-color:white; color:rgb(6, 208, 244);"><span>Feedback/Complaints</span></a></div>
+            <div class="item"><a href="laundry_history.php"><span>Laundry History</span></a></div>
+            <div class="item"><a href="report.php"  style="background-color:white; color:rgb(6, 208, 244);"><span>Feedback / Complaints</span></a></div>
             
 
             
@@ -66,19 +66,64 @@ if(isset($_POST['repsubmit'])){
 
     </aside>
 
+    <?php 
+
+$month = date('m');
+$day = date('d');
+$year = date('Y');
+
+$today = $year . '-' . $month . '-' . $day;
+?>
+
 <main>
    <div class="repmain">
     <form class="report-form" method="post">
     <label class="report-label">Feedback / Complaints:</label><br>
-    <input type="date" name="repdate" placeholder="Current Date" >
-    <textarea name="report" rows="10" cols="50" id="report" placeholder="Desribe your feedback:"></textarea><br><br>
+    <input type="date" name="repdate" placeholder="Current Date"value="<?php echo $today; ?>" min="<?php echo $today; ?>" max="<?php echo $today; ?>" required>
+    <textarea name="report" rows="10" cols="50" id="report" placeholder="Desribe your feedback:" required></textarea><br><br>
     <div class="submit-btn">
-    <button type='submit' value='submit' name='repsubmit'>Submit</button><br><br>
+    <button type='submit' value='submit' name='repsubmit'>Report Submit</button><br><br>
     </div>
     </form>
 </div>
 
-</main>
+<div class="report-update">
+    
+        <!-- <h3 style="margin-left:10px">Report Accepted / Not </h3> -->
+        <?php
+        $resql="SELECT  user.us_id,
+        report.report_date,
+        report.report_desc,
+        report.report_status
+        FROM user
+        INNER JOIN report ON user.us_id=report.us_id 
+        WHERE report_status='Reviewed' and user.us_id='$user_id'";
 
+        $sql=mysqli_query($conn,$resql);
+        if(mysqli_num_rows($sql) != 0){
+        while($rows=mysqli_fetch_assoc($sql)){
+
+        $date = date_create(($rows['report_date'])); 
+        $publishDate = date_format($date,"d-m-Y");
+
+        echo " 
+               <div class='rep-cards'>
+               <div class='rep-card'
+               <p>$publishDate</p>
+               <p>{$rows['report_desc']}</p>
+               </div>
+               <div class='rep-status'>
+               <p><span style='color:blue'>{$rows['report_status']}</span><p>
+               </div>
+               </div>
+            ";
+        }
+        }
+        ?>
+        
+</diV>
+
+
+    </main>
 </body>
 </html>

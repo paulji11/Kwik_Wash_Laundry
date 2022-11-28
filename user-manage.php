@@ -32,7 +32,7 @@ $result=mysqli_query($conn,$sql);
         <div class="logo-profile">
             <div class="profile-icon">
                 <a href="1234"><img src="./images/user.png"></a>
-<a><span style="color:#0ec4e1; margin-left:6px;"><?php echo $name ;?></span></a>
+                <a><?php echo $name ;?></a>
             </div>
             
         </div>
@@ -43,22 +43,20 @@ $result=mysqli_query($conn,$sql);
             <div class="dashhead">
                 <h3>Dashboard</h3>
             </div>
-            <div class="dash-content">
-                <a href="user-manage.php" style="background-color:white; color:rgb(6, 208, 244);">User Management</a><br>
-            </div>
-            <div class="dash-content">
-                <a href="request_status.php">Request Status</a><br>
-            </div>
-            <div class="dash-content">
-                <a href="price_manage.php">Price Managemant</a><br>
-            </div>
-            <div class="dash-content">
-                <a>Feedbacks / Complaints</a><br>
-            </div>
+            
+                <a href="user-manage.php" style="background-color:white; color:rgb(6, 208, 244);">User Management</a>
+            
+            
+                <a href="request_status.php">Request Status</a>
+            
+                <a href="price_manage.php">Price Management</a>
+            
+                <a href="ad_report.php">Feedbacks / Complaints</a>
+            
         </div>
     </aside>
     
-    <main>
+  
         <div class="table-from">
             <h2>User Details</h2>
             <table style="border-spacing: 0px; width:100vh;">
@@ -96,6 +94,6 @@ $result=mysqli_query($conn,$sql);
                 
             </table>
         </div>
-    </main>
+   
 </body>
 </html>

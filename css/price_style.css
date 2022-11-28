@@ -2,6 +2,7 @@ body{
     background:white;
     margin: 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -29,6 +30,7 @@ header{
 .logo-profile{
     float: right;
     display: flex;
+    margin-right: 16px;
 }
 
 .profile-icon{
@@ -38,12 +40,13 @@ header{
 }
 
 .profile-icon img{
-    height: 50px;
+    height: 40px;
 }
 .profile-icon a {
     margin-top: 15px;
+    margin-left: 6px;
     text-decoration: none;
-    color:black;
+    color:#0ec4e1;;
 }
 
 aside{
@@ -122,16 +125,29 @@ h2{
     color:aqua;
 }
 
-table , td ,th ,tbody{
-    border: 1px solid black;
+table ,tbody{
+    border: 1px solid rgb(70, 69, 69);
     color:rgb(12, 12, 13);
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
     text-align: center;
-    width:100vh; 
-    height:50px;
+    width: 50rem;
+
+  }
+  td{
+    border: 1px solid rgb(70, 69, 69);
+    color:rgb(12, 12, 13);
+    text-align: center;
+    padding: 8px;
+    font-family: arial;
+  }
+
+  th{
+    border:1px solid rgb(70, 69, 69);
+    background: aqua;
+    color:rgb(12, 12, 13);
+    font-weight: 900;
+    text-align: center;
+    padding: 8px;
+    font-family: arial;
   }
 
   .button{

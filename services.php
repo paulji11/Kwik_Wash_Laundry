@@ -1,4 +1,5 @@
 <?php
+include 'connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +72,12 @@
         <div class="prices-div">
             <div class="prices">
                 <div class="prices-digit">
-                    <p>90</p>
+                    <?php
+                    $psql="SELECT * from price_tb";
+                    $data=mysqli_query($conn,$psql);
+                    while($row=mysqli_fetch_assoc($data)){
+                    ?>
+                    <p><?php echo $row['top_wear'] ?></p>
                 </div>
                 <div class="prices-text">
                     <p>Top Wear Clothes</p>
@@ -80,7 +86,7 @@
 
             <div class="prices">
                 <div class="prices-digit">
-                    <p>120</p>
+                    <p><?php echo $row['bottom_wear'] ?></p>
                 </div>
                 <div class="prices-text">
                     <p>Bottom Wear Clothes</p>
@@ -90,7 +96,7 @@
 
             <div class="prices">
                 <div class="prices-digit">
-                    <p>150</p>
+                    <p><?php echo $row['woollen_wear'] ?></p>
                 </div>
                 <div class="prices-text">
                     <p>Woollen Wear Clothes</p>
@@ -99,12 +105,15 @@
 
             <div class="prices">
                 <div class="prices-digit">
-                    <p>50</p>
+                    <p><?php echo $row['other_wear'] ?></p>
                 </div>
                 <div class="prices-text">
                     <p>Other Type Clothes</p>
                 </div>
             </div>
+            <?php
+                    }
+            ?>
 
         </div>
     </div>

@@ -5,11 +5,12 @@ body{
 }
 
 header{
-    height: 10vh;
+    height: 75px;
+    margin-top: 0px;
     width: 100%;
     display: flex;
-    position: absolute;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     justify-content: space-between;
     z-index: 1;
     background: white;
@@ -29,13 +30,13 @@ header{
 .edit{
     position: absolute;
     display:flex ;
-    margin-top: 20vh;
+    margin-top: 13vh;
     margin-left: 15vh;
 }
 
 
 .form-edit{
-    height: 70vh;
+    height: 110vh;
     width: 50vh;
     display: block;
     margin-left: 40vh;
@@ -62,7 +63,7 @@ header{
 }
 
 .button-cls{
-    margin-top: 10px;
+    margin-top: 0px;
     text-align: center;
 }
 
@@ -80,7 +81,7 @@ header{
 .profile-card{
     display: block;
     background-color: rgb(218, 209, 209);
-    height: 52vh;
+    height: 78vh;
     padding: 15px;
 }
 
@@ -88,17 +89,18 @@ header{
     font-size: 17px;
     font-weight: bold;
 }
+
 .change-btn{
-    display: none;
-    }
-    
-    .change{
-        height: 20px;
-        width: 150px;
-        margin-top: 10px;
-        float: right;
-        background-color: rgba(113 112 112 / 1%);
-        border-style: none;
-        text-decoration: none;
-        cursor:pointer;
-    }
+display: none;
+}
+
+.change{
+    height: 20px;
+    width: 150px;
+    margin-top: 10px;
+    float: right;
+    background-color: rgba(113 112 112 / 1%);
+    border-style: none;
+    text-decoration: none;
+    cursor:pointer;
+}

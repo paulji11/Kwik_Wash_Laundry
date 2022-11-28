@@ -82,13 +82,15 @@ if(isset($_POST['submit'])){
             <div class="form" >
                 <p><span style="color: aqua;">Admin Login</span></p>
              <form method="post">
-                <input type="text" name="adlogin" placeholder="Username or Email"><br>
+                <input type="text" name="adlogin" placeholder="Email-id"><br>
                 <span style='color:red;font-size:small;'><?php if(isset($email))echo $emailerror ?><br></span>
                 <input type="password" name="adpass" placeholder="Password"><br>
                 <span style='color:red;font-size:small;'><?php if(isset($passw))echo $passworderror ?><br></span>
                 <button type="submit" name="submit" value="submit">Login</button>
-               
-             </form>
+             </form><br>
+             <div style="float:right; margin-right:10px;">
+                    <a href="forgot_pass.php" style="text-decoration:none"><span>Forgot Password?</span></a>
+                    </div><br>
 
             </div>
             </div>
