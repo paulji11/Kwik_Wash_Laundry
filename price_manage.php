@@ -31,7 +31,7 @@ $result=mysqli_query($conn,$sql);
         </div>
         <div class="logo-profile">
             <div class="profile-icon">
-                <a href="1234"><img src="./images/user.png"></a>
+                <a href="#1234"><img src="./images/user.png"></a>
                 
                 <a><?php echo $name ;?></a>
                 

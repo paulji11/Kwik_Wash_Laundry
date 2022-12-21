@@ -87,10 +87,8 @@ if(isset($_POST['submit'])){
                 <input type="password" name="adpass" placeholder="Password"><br>
                 <span style='color:red;font-size:small;'><?php if(isset($passw))echo $passworderror ?><br></span>
                 <button type="submit" name="submit" value="submit">Login</button>
-             </form><br>
-             <div style="float:right; margin-right:10px;">
-                    <a href="forgot_pass.php" style="text-decoration:none"><span>Forgot Password?</span></a>
-                    </div><br>
+             </form>
+          
 
             </div>
             </div>

@@ -86,7 +86,7 @@ if(isset($_POST['process'])) {
                 <a href="price_manage.php">Price Managemant</a><br>
             </div>
             <div class="dash-content">
-                <a href="report.php">Feedbacks / Complaints</a><br>
+                <a href="ad_report.php">Feedbacks / Complaints</a><br>
             </div>
         </div>
     </aside>

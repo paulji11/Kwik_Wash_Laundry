@@ -42,7 +42,7 @@ if(isset($_POST['signupbtn'])){
 
     if(empty($phone)){
         $phoneerror="Please enter the phone number";
-    }elseif(!preg_match("/^([0-9' ]{10})$/",$phone)){
+    }elseif(!preg_match("/^([0-9']{10})$/",$phone)){
         $phoneerror="It should contain 10 digits";
     }
 
@@ -123,7 +123,7 @@ if(isset($_POST['signupbtn'])){
             <h2>Register</h2>
             <form class='logform' method='POST'>
                 <input type='text' class='input_form' placeholder='First name' name='us_fstname' ><br>
-                <span style='background-color:red; color:white; font-size:small;'><?php if(isset($fstname))echo $fstnameerror ?><br></span>
+                <span style='color:red; font-size:small;'><?php if(isset($fstname))echo $fstnameerror ?><br></span>
                 <input type='text' class='input_form' placeholder='Last name' name='us_lastname'><br>
                 <span style='color:red;font-size:small;'><?php if(isset($lastname))echo $lastnameerror ?><br></span>
                 <input type='text' class='input_form' placeholder='Valid email-id' name='us_email'><br>
